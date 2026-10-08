@@ -1,0 +1,1628 @@
+/* =========================================================
+   QUIZBARGAIN
+   Complete Mobile-First Stylesheet
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --bg: #09090f;
+    --card: #15151e;
+    --card-light: #20202b;
+    --border: #30303d;
+
+    --text: #ffffff;
+    --muted: #9292a3;
+
+    --gold: #f5c542;
+    --purple: #6955ff;
+    --green: #36c275;
+    --red: #e74c3c;
+
+    --radius: 16px;
+}
+
+
+/* =========================================================
+   APP CONTAINER
+========================================================= */
+
+.app-container {
+    width: 100%;
+    max-width: 600px;
+    min-height: 100vh;
+
+    margin: 0 auto;
+    padding: 20px;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   SCREENS
+========================================================= */
+
+.screen {
+    display: none;
+    width: 100%;
+    min-height: calc(100vh - 40px);
+
+    flex-direction: column;
+}
+
+.screen.active {
+    display: flex;
+}
+
+
+/* =========================================================
+   GENERAL SCREEN HEADER
+========================================================= */
+
+.screen-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.screen-header h2 {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.screen-header p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   MAIN MENU
+========================================================= */
+
+#mainMenu {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo-section {
+    margin-bottom: 45px;
+}
+
+.logo-icon {
+    width: 100px;
+    height: 100px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--card);
+    border: 2px solid var(--border);
+
+    border-radius: 30px;
+
+    font-size: 52px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.4);
+
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+.logo-section h1 {
+    font-size: clamp(32px, 9vw, 48px);
+    font-weight: 1000;
+
+    letter-spacing: 2px;
+
+    color: var(--gold);
+
+    text-shadow:
+        0 0 20px rgba(245, 197, 66, 0.15);
+}
+
+.logo-section p {
+    margin-top: 15px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    font-weight: 600;
+}
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================================================
+   MENU BUTTONS
+========================================================= */
+
+.menu-buttons {
+    width: 100%;
+    max-width: 380px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+button {
+    width: 100%;
+
+    min-height: 52px;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button:hover {
+    opacity: 0.95;
+}
+
+button:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.primary-btn {
+    background: var(--gold);
+    color: #111111;
+
+    box-shadow:
+        0 8px 20px rgba(245, 197, 66, 0.12);
+}
+
+.primary-btn:hover {
+    box-shadow:
+        0 10px 25px rgba(245, 197, 66, 0.2);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+========================================================= */
+
+.secondary-btn {
+    background: var(--card);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+}
+
+.secondary-btn:hover {
+    background: var(--card-light);
+}
+
+
+/* =========================================================
+   DANGER BUTTON
+========================================================= */
+
+.danger-btn {
+    background: var(--red);
+    color: white;
+}
+
+
+/* =========================================================
+   SOUND BUTTON
+========================================================= */
+
+.sound-toggle {
+    font-size: 13px;
+    min-height: 45px;
+}
+
+
+/* =========================================================
+   HOW TO PLAY
+========================================================= */
+
+#howToPlay {
+    padding-top: 20px;
+}
+
+.rules-container {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+.rule-card {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding: 18px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+}
+
+.rule-icon {
+    min-width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--card-light);
+
+    border-radius: 12px;
+
+    font-size: 23px;
+}
+
+.rule-card h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.rule-card p {
+    color: var(--muted);
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PLAYER SETUP
+========================================================= */
+
+#playerSetup {
+    justify-content: center;
+}
+
+.player-inputs {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.input-group label {
+    color: var(--muted);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.optional {
+    color: var(--muted);
+
+    font-size: 9px;
+
+    margin-left: 5px;
+}
+
+input,
+select {
+    width: 100%;
+
+    min-height: 50px;
+
+    padding: 0 15px;
+
+    background: var(--card);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 2px rgba(245, 197, 66, 0.08);
+}
+
+select {
+    appearance: auto;
+}
+
+.setup-buttons {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   GAME TOP BAR
+========================================================= */
+
+.game-topbar {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+.round-info,
+.current-player {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.round-info span,
+.current-player span {
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.round-info strong,
+.current-player strong {
+    font-size: 14px;
+}
+
+.current-player {
+    text-align: right;
+}
+
+.current-player strong {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   ROUND PROGRESS
+========================================================= */
+
+.round-progress {
+    width: 100%;
+    height: 5px;
+
+    background: var(--card-light);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-bottom: 15px;
+}
+
+.round-progress-bar {
+    width: 10%;
+    height: 100%;
+
+    background: var(--gold);
+
+    border-radius: 10px;
+
+    transition: width 0.4s ease;
+}
+
+
+/* =========================================================
+   PLAYER CARDS
+========================================================= */
+
+.player-cards {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+}
+
+.player-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 12px;
+}
+
+.player-card.active {
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 1px rgba(245, 197, 66, 0.15);
+}
+
+.player-card-name {
+    display: block;
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    margin-bottom: 6px;
+}
+
+.player-card-coins {
+    color: var(--gold);
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+.player-card-score {
+    color: var(--muted);
+
+    font-size: 10px;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   QUESTION CARD
+========================================================= */
+
+.question-card {
+    position: relative;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    overflow: hidden;
+}
+
+.question-card.question-enter {
+    animation: questionEnter 0.35s ease;
+}
+
+@keyframes questionEnter {
+
+    0% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+.timer {
+    position: absolute;
+
+    top: 16px;
+    right: 18px;
+
+    color: var(--text);
+
+    background: var(--card-light);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 7px 11px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+.timer.warning {
+    color: var(--red);
+
+    border-color: var(--red);
+
+    animation: timerPulse 0.8s infinite;
+}
+
+@keyframes timerPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+}
+
+
+/* =========================================================
+   QUESTION META
+========================================================= */
+
+.question-meta {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+
+    padding-right: 80px;
+}
+
+.difficulty {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 25px;
+
+    padding: 0 10px;
+
+    border-radius: 20px;
+
+    background: rgba(105, 85, 255, 0.15);
+
+    color: #a79dff;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.8px;
+}
+
+.question-meta > span:last-child {
+    color: var(--gold);
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   QUESTION TEXT
+========================================================= */
+
+#questionText {
+    font-size: 20px;
+
+    line-height: 1.35;
+
+    margin-bottom: 20px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   OPTIONS
+========================================================= */
+
+.options {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+.option-btn {
+    width: 100%;
+
+    min-height: 54px;
+
+    padding: 12px 15px;
+
+    text-align: left;
+
+    background: var(--card-light);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    transition:
+        border-color 0.15s ease,
+        background 0.15s ease,
+        transform 0.15s ease;
+}
+
+.option-btn:hover {
+    background: #282834;
+}
+
+.option-btn.selected {
+    border-color: var(--gold);
+
+    background: rgba(245, 197, 66, 0.08);
+
+    color: var(--gold);
+}
+
+.option-btn.correct {
+    border-color: var(--green);
+
+    background: rgba(54, 194, 117, 0.12);
+
+    color: var(--green);
+}
+
+.option-btn.wrong {
+    border-color: var(--red);
+
+    background: rgba(231, 76, 60, 0.12);
+
+    color: var(--red);
+}
+
+.option-btn.removed-option {
+    opacity: 0.3;
+
+    text-decoration: line-through;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   FEEDBACK
+========================================================= */
+
+.feedback-message {
+    min-height: 25px;
+
+    margin-bottom: 10px;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    opacity: 0;
+}
+
+.feedback-message.show {
+    opacity: 1;
+
+    animation: feedbackPop 0.3s ease;
+}
+
+.feedback-message.correct {
+    color: var(--green);
+}
+
+.feedback-message.wrong {
+    color: var(--red);
+}
+
+@keyframes feedbackPop {
+
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   COIN POPUP
+========================================================= */
+
+.coin-change {
+    position: absolute;
+
+    right: 20px;
+    top: 60px;
+
+    z-index: 20;
+
+    font-size: 16px;
+
+    font-weight: 900;
+
+    color: var(--gold);
+
+    pointer-events: none;
+
+    animation: coinFloat 1s ease forwards;
+}
+
+@keyframes coinFloat {
+
+    0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.8);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-35px) scale(1.05);
+    }
+}
+
+
+/* =========================================================
+   TRADE BUTTON
+========================================================= */
+
+.trade-btn {
+    margin-top: 10px;
+
+    background: var(--card-light);
+
+    color: var(--gold);
+
+    border: 1px solid var(--border);
+
+    min-height: 50px;
+}
+
+.trade-btn:hover {
+    border-color: var(--gold);
+}
+
+
+/* =========================================================
+   TRADE SCREEN
+========================================================= */
+
+#tradeScreen {
+    justify-content: center;
+}
+
+.trade-buyer-card {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 18px;
+
+    margin-bottom: 15px;
+}
+
+.trade-buyer-card > div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.trade-buyer-card > div:last-child {
+    text-align: right;
+}
+
+.trade-buyer-card span {
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+}
+
+.trade-buyer-card strong {
+    font-size: 15px;
+}
+
+.trade-buyer-card > div:last-child strong {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   SUGGESTED PRICE
+========================================================= */
+
+.suggested-price {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(245, 197, 66, 0.06);
+
+    border: 1px solid rgba(245, 197, 66, 0.2);
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    margin-bottom: 20px;
+}
+
+.suggested-price span {
+    color: var(--muted);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+}
+
+.suggested-price strong {
+    color: var(--gold);
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   COIN INPUT
+========================================================= */
+
+.coin-input {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+.coin-input > span {
+    position: absolute;
+
+    left: 15px;
+
+    font-size: 16px;
+
+    z-index: 2;
+}
+
+.coin-input input {
+    padding-left: 43px;
+}
+
+
+/* =========================================================
+   NEGOTIATION SCREEN
+========================================================= */
+
+#negotiationScreen {
+    justify-content: center;
+}
+
+.negotiation-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 20px;
+}
+
+.negotiation-players {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.negotiation-players > div:not(.negotiation-arrow) {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    min-width: 0;
+}
+
+.negotiation-players > div:last-child {
+    text-align: right;
+}
+
+.negotiation-players span {
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.negotiation-players strong {
+    font-size: 13px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.negotiation-arrow {
+    color: var(--gold);
+
+    font-size: 20px;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   OFFER BOX
+========================================================= */
+
+.offer-box {
+    text-align: center;
+
+    background: var(--card-light);
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    margin-bottom: 18px;
+}
+
+.offer-box span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 7px;
+}
+
+.offer-box strong {
+    color: var(--gold);
+
+    font-size: 30px;
+}
+
+#negotiationText {
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    margin-bottom: 20px;
+}
+
+.negotiation-buttons {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   COUNTER OFFER
+========================================================= */
+
+#counterOfferScreen {
+    justify-content: center;
+}
+
+.counter-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 20px;
+}
+
+.original-offer {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--card-light);
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    margin-bottom: 20px;
+}
+
+.original-offer span {
+    color: var(--muted);
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+.original-offer strong {
+    color: var(--gold);
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   TRADE RESULT
+========================================================= */
+
+#tradeResultScreen {
+    justify-content: center;
+
+    text-align: center;
+}
+
+.trade-result {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.trade-result-icon {
+    width: 85px;
+    height: 85px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 25px;
+
+    font-size: 42px;
+
+    margin-bottom: 22px;
+
+    animation: resultPop 0.5s ease;
+}
+
+@keyframes resultPop {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    70% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.trade-result h2 {
+    font-size: 24px;
+
+    color: var(--gold);
+
+    margin-bottom: 10px;
+}
+
+.trade-result > p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   HINT BOX
+========================================================= */
+
+.hint-box {
+    width: 100%;
+
+    background: rgba(105, 85, 255, 0.08);
+
+    border: 1px solid rgba(105, 85, 255, 0.25);
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    margin-bottom: 20px;
+
+    text-align: left;
+}
+
+.hint-title {
+    color: #a79dff;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 8px;
+}
+
+.hint-box p {
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   LEADERBOARD
+========================================================= */
+
+#leaderboardScreen {
+    padding-top: 20px;
+}
+
+.trophy-icon {
+    font-size: 45px;
+
+    margin-bottom: 10px;
+}
+
+.leaderboard {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.leaderboard-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    padding: 14px;
+}
+
+.leaderboard-item:first-child {
+    border-color: var(--gold);
+
+    background: rgba(245, 197, 66, 0.06);
+}
+
+.leaderboard-rank {
+    min-width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: var(--card-light);
+
+    font-size: 13px;
+
+    font-weight: 900;
+}
+
+.leaderboard-name {
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+
+    text-align: left;
+}
+
+.leaderboard-name strong {
+    font-size: 13px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.leaderboard-name small {
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+.leaderboard-score {
+    display: flex;
+
+    align-items: flex-end;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    text-align: right;
+}
+
+.leaderboard-score strong {
+    color: var(--gold);
+
+    font-size: 16px;
+}
+
+.leaderboard-score small {
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   COUNTDOWN OVERLAY
+========================================================= */
+
+.countdown-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(9, 9, 15, 0.96);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.countdown-overlay.active {
+    display: flex;
+}
+
+.countdown-text {
+    font-size: 110px;
+
+    font-weight: 900;
+
+    color: var(--gold);
+
+    text-shadow:
+        0 0 30px rgba(245, 197, 66, 0.4);
+
+    animation: countdownPop 0.8s ease;
+}
+
+@keyframes countdownPop {
+
+    0% {
+        opacity: 0;
+        transform: scale(1.7);
+    }
+
+    40% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   MOBILE OPTIMIZATION
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .app-container {
+        padding: 15px;
+    }
+
+    .logo-icon {
+        width: 85px;
+        height: 85px;
+
+        font-size: 43px;
+    }
+
+    .logo-section h1 {
+        font-size: 30px;
+    }
+
+    .logo-section {
+        margin-bottom: 30px;
+    }
+
+    #questionText {
+        font-size: 18px;
+    }
+
+    .question-card {
+        padding: 16px;
+    }
+
+    .option-btn {
+        min-height: 50px;
+
+        font-size: 12px;
+    }
+
+    .countdown-text {
+        font-size: 90px;
+    }
+}
+
+
+/* =========================================================
+   TABLET / WIDER MOBILE
+========================================================= */
+
+@media (min-width: 500px) {
+
+    .app-container {
+        padding: 30px;
+    }
+
+    .screen {
+        min-height: calc(100vh - 60px);
+    }
+
+    .options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .option-btn {
+        min-height: 65px;
+    }
+
+    .negotiation-buttons {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .negotiation-buttons button {
+        min-height: 50px;
+    }
+}
+
+
+/* =========================================================
+   SAFE AREA SUPPORT
+========================================================= */
+
+@supports (padding: env(safe-area-inset-bottom)) {
+
+    .app-container {
+        padding-bottom: calc(
+            20px + env(safe-area-inset-bottom)
+        );
+    }
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+    background: rgba(245, 197, 66, 0.25);
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--muted);
+}

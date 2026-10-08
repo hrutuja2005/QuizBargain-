@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#09090f"
+    >
+
+    <title>QuizBargain</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         APP CONTAINER
+    =========================================== -->
+    <main class="app-container">
+
+        <!-- ==========================================
+             MAIN MENU
+        =========================================== -->
+        <section id="mainMenu" class="screen active">
+
+            <div class="logo-section">
+
+                <div class="logo-icon">
+                    🧠
+                </div>
+
+                <h1>QUIZBARGAIN</h1>
+
+                <p>
+                    Know More.<br>
+                    Trade Smarter.<br>
+                    Win Bigger.
+                </p>
+
+            </div>
+
+
+            <div class="menu-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="showPlayerSetup()"
+                >
+                    🎮 PLAY GAME
+                </button>
+
+                <button
+                    class="secondary-btn"
+                    onclick="showScreen('howToPlay')"
+                >
+                    📖 HOW TO PLAY
+                </button>
+
+                <button
+                    class="sound-toggle secondary-btn"
+                    onclick="toggleSound()"
+                    id="soundToggle"
+                >
+                    🔊 SOUND ON
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             HOW TO PLAY
+        =========================================== -->
+        <section id="howToPlay" class="screen">
+
+            <div class="screen-header">
+
+                <h2>📖 HOW TO PLAY</h2>
+
+                <p>
+                    Know more. Trade smarter. Win bigger.
+                </p>
+
+            </div>
+
+
+            <div class="rules-container">
+
+                <div class="rule-card">
+
+                    <div class="rule-icon">
+                        🧠
+                    </div>
+
+                    <div>
+                        <h3>Answer Questions</h3>
+
+                        <p>
+                            Answer questions before the timer reaches zero.
+                            Harder questions give more points.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="rule-card">
+
+                    <div class="rule-icon">
+                        🪙
+                    </div>
+
+                    <div>
+                        <h3>Earn Coins</h3>
+
+                        <p>
+                            Correct answers earn coins.
+                            Wrong answers cost 10 coins.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="rule-card">
+
+                    <div class="rule-icon">
+                        🤝
+                    </div>
+
+                    <div>
+                        <h3>Trade Knowledge</h3>
+
+                        <p>
+                            Buy hints from other players when you're stuck.
+                            Players can earn coins by selling hints.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="rule-card">
+
+                    <div class="rule-icon">
+                        🔥
+                    </div>
+
+                    <div>
+                        <h3>Build a Streak</h3>
+
+                        <p>
+                            Answer multiple questions correctly in a row
+                            to earn bonus rewards.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="rule-card">
+
+                    <div class="rule-icon">
+                        🏆
+                    </div>
+
+                    <div>
+                        <h3>Become the Champion</h3>
+
+                        <p>
+                            Your final ranking depends on your score
+                            and the coins you manage to save.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="secondary-btn"
+                onclick="showScreen('mainMenu')"
+            >
+                ← BACK
+            </button>
+
+        </section>
+
+
+        <!-- ==========================================
+             PLAYER SETUP
+        =========================================== -->
+        <section id="playerSetup" class="screen">
+
+            <div class="screen-header">
+
+                <h2>👥 PLAYERS</h2>
+
+                <p>
+                    Add 2–4 players
+                </p>
+
+            </div>
+
+
+            <div class="player-inputs">
+
+                <div class="input-group">
+
+                    <label for="player1">
+                        PLAYER 1
+                    </label>
+
+                    <input
+                        type="text"
+                        id="player1"
+                        placeholder="Enter player name"
+                        maxlength="20"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="player2">
+                        PLAYER 2
+                    </label>
+
+                    <input
+                        type="text"
+                        id="player2"
+                        placeholder="Enter player name"
+                        maxlength="20"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="player3">
+                        PLAYER 3
+                        <span class="optional">
+                            OPTIONAL
+                        </span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="player3"
+                        placeholder="Enter player name"
+                        maxlength="20"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="player4">
+                        PLAYER 4
+                        <span class="optional">
+                            OPTIONAL
+                        </span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="player4"
+                        placeholder="Enter player name"
+                        maxlength="20"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="setup-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="startGame()"
+                >
+                    START GAME 🚀
+                </button>
+
+                <button
+                    class="secondary-btn"
+                    onclick="showScreen('mainMenu')"
+                >
+                    ← BACK
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             GAME SCREEN
+        =========================================== -->
+        <section id="gameScreen" class="screen">
+
+            <!-- TOP BAR -->
+            <div class="game-topbar">
+
+                <div class="round-info">
+
+                    <span>
+                        ROUND
+                    </span>
+
+                    <strong id="roundDisplay">
+                        1 / 10
+                    </strong>
+
+                </div>
+
+
+                <div class="current-player">
+
+                    <span>
+                        TURN
+                    </span>
+
+                    <strong id="currentPlayerDisplay">
+                        Player
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- ROUND PROGRESS -->
+            <div class="round-progress">
+
+                <div
+                    id="roundProgressBar"
+                    class="round-progress-bar"
+                ></div>
+
+            </div>
+
+
+            <!-- PLAYER CARDS -->
+            <div
+                id="playerCards"
+                class="player-cards"
+            >
+            </div>
+
+
+            <!-- QUESTION CARD -->
+            <div
+                id="questionCard"
+                class="question-card"
+            >
+
+                <!-- TIMER -->
+                <div class="timer">
+
+                    ⏱️
+
+                    <span id="timer">
+                        30
+                    </span>
+
+                    s
+
+                </div>
+
+
+                <!-- QUESTION META -->
+                <div class="question-meta">
+
+                    <span
+                        id="questionDifficulty"
+                        class="difficulty"
+                    >
+                        EASY
+                    </span>
+
+
+                    <span>
+                        💰
+
+                        <span id="questionReward">
+                            20
+                        </span>
+                    </span>
+
+                </div>
+
+
+                <!-- QUESTION -->
+                <h2 id="questionText">
+                    Question goes here
+                </h2>
+
+
+                <!-- OPTIONS -->
+                <div
+                    id="options"
+                    class="options"
+                >
+                </div>
+
+
+                <!-- FEEDBACK -->
+                <div
+                    id="feedbackMessage"
+                    class="feedback-message"
+                >
+                </div>
+
+
+                <!-- SUBMIT -->
+                <button
+                    id="submitAnswerBtn"
+                    class="primary-btn"
+                    onclick="submitAnswer()"
+                >
+                    SUBMIT ANSWER
+                </button>
+
+
+                <!-- TRADE -->
+                <button
+                    class="trade-btn"
+                    onclick="openTradePanel()"
+                >
+                    🤝 TRADE KNOWLEDGE
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             TRADE SCREEN
+        =========================================== -->
+        <section id="tradeScreen" class="screen">
+
+            <div class="screen-header">
+
+                <h2>🤝 TRADE KNOWLEDGE</h2>
+
+                <p>
+                    Buy a hint from another player
+                </p>
+
+            </div>
+
+
+            <!-- BUYER INFO -->
+            <div class="trade-buyer-card">
+
+                <div>
+                    <span>
+                        BUYER
+                    </span>
+
+                    <strong id="tradeBuyerName">
+                        Player
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>
+                        YOUR COINS
+                    </span>
+
+                    <strong>
+                        🪙
+                        <span id="tradeBuyerCoins">
+                            100
+                        </span>
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <!-- SUGGESTED PRICE -->
+            <div class="suggested-price">
+
+                <span>
+                    SUGGESTED HINT PRICE
+                </span>
+
+                <strong>
+                    🪙
+                    <span id="suggestedPrice">
+                        15
+                    </span>
+                </strong>
+
+            </div>
+
+
+            <!-- SELLER -->
+            <div class="input-group">
+
+                <label for="sellerSelect">
+                    SELLER
+                </label>
+
+                <select id="sellerSelect">
+                </select>
+
+            </div>
+
+
+            <!-- OFFER -->
+            <div class="input-group">
+
+                <label for="offerPrice">
+                    YOUR OFFER
+                </label>
+
+                <div class="coin-input">
+
+                    <span>
+                        🪙
+                    </span>
+
+                    <input
+                        type="number"
+                        id="offerPrice"
+                        min="1"
+                        placeholder="Enter price"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="makeOffer()"
+            >
+                💰 MAKE OFFER
+            </button>
+
+
+            <button
+                class="secondary-btn"
+                onclick="closeTradePanel()"
+            >
+                ← CANCEL
+            </button>
+
+        </section>
+
+
+        <!-- ==========================================
+             NEGOTIATION SCREEN
+        =========================================== -->
+        <section id="negotiationScreen" class="screen">
+
+            <div class="screen-header">
+
+                <h2>💬 NEGOTIATION</h2>
+
+                <p>
+                    Your knowledge has a price.
+                </p>
+
+            </div>
+
+
+            <div class="negotiation-card">
+
+                <div class="negotiation-players">
+
+                    <div>
+
+                        <span>
+                            BUYER
+                        </span>
+
+                        <strong id="negotiationBuyer">
+                            Player 1
+                        </strong>
+
+                    </div>
+
+
+                    <div class="negotiation-arrow">
+                        →
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            SELLER
+                        </span>
+
+                        <strong id="negotiationSeller">
+                            Player 2
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="offer-box">
+
+                    <span>
+                        OFFER
+                    </span>
+
+                    <strong>
+                        🪙
+                        <span id="negotiationOffer">
+                            20
+                        </span>
+                    </strong>
+
+                </div>
+
+
+                <p id="negotiationText">
+                    Player wants to buy your hint.
+                </p>
+
+
+                <div class="negotiation-buttons">
+
+                    <button
+                        class="primary-btn"
+                        onclick="acceptOffer()"
+                    >
+                        ✓ ACCEPT
+                    </button>
+
+
+                    <button
+                        class="secondary-btn"
+                        onclick="showCounterOffer()"
+                    >
+                        💬 COUNTER
+                    </button>
+
+
+                    <button
+                        class="danger-btn"
+                        onclick="rejectOffer()"
+                    >
+                        ✕ REJECT
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             COUNTER OFFER SCREEN
+        =========================================== -->
+        <section id="counterOfferScreen" class="screen">
+
+            <div class="screen-header">
+
+                <h2>💬 COUNTER OFFER</h2>
+
+                <p>
+                    Set your price.
+                </p>
+
+            </div>
+
+
+            <div class="counter-card">
+
+                <div class="original-offer">
+
+                    <span>
+                        ORIGINAL OFFER
+                    </span>
+
+                    <strong>
+                        🪙
+                        <span id="originalOffer">
+                            20
+                        </span>
+                    </strong>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="counterPrice">
+                        YOUR COUNTER PRICE
+                    </label>
+
+                    <div class="coin-input">
+
+                        <span>
+                            🪙
+                        </span>
+
+                        <input
+                            type="number"
+                            id="counterPrice"
+                            min="1"
+                            placeholder="Enter price"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="submitCounterOffer()"
+                >
+                    SEND COUNTER OFFER
+                </button>
+
+
+                <button
+                    class="secondary-btn"
+                    onclick="showScreen('negotiationScreen')"
+                >
+                    ← BACK
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             TRADE RESULT SCREEN
+        =========================================== -->
+        <section id="tradeResultScreen" class="screen">
+
+            <div class="trade-result">
+
+                <div class="trade-result-icon">
+                    💡
+                </div>
+
+
+                <h2>
+                    TRADE COMPLETE!
+                </h2>
+
+
+                <p id="tradeResultText">
+                    Knowledge has been traded successfully.
+                </p>
+
+
+                <div class="hint-box">
+
+                    <div class="hint-title">
+                        💡 HINT
+                    </div>
+
+                    <p id="hintText">
+                        Hint appears here.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="returnToQuestion()"
+                >
+                    CONTINUE QUESTION
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             LEADERBOARD
+        =========================================== -->
+        <section id="leaderboardScreen" class="screen">
+
+            <div class="screen-header">
+
+                <div class="trophy-icon">
+                    🏆
+                </div>
+
+                <h2>
+                    FINAL LEADERBOARD
+                </h2>
+
+                <p>
+                    Who mastered knowledge and trading?
+                </p>
+
+            </div>
+
+
+            <div
+                id="leaderboard"
+                class="leaderboard"
+            >
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="restartGame()"
+            >
+                🔄 PLAY AGAIN
+            </button>
+
+
+            <button
+                class="secondary-btn"
+                onclick="showScreen('mainMenu')"
+            >
+                🏠 MAIN MENU
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         COUNTDOWN OVERLAY
+    =========================================== -->
+    <div
+        id="countdownOverlay"
+        class="countdown-overlay"
+    >
+
+        <div
+            id="countdownText"
+            class="countdown-text"
+        >
+            3
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

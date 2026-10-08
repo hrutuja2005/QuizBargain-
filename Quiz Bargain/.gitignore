@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Zip files
+*.zip
+
+# Android & Gradle build artifacts
+.gradle/
+build/
+android/.gradle/
+android/build/
+android/app/build/
+android/capacitor-cordova-android-plugins/build/
+*.apk
+*.aab
+local.properties
+android/local.properties
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Operating System & Logs
+*.log
+.DS_Store
+Thumbs.db
+
+push.ps1
+
+
+push.bat
+
+
+server.ps1
+
